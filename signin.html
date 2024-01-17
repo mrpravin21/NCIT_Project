@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>polls@NCIT</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/icons8-share-32.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary nav-padd fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html"><img src="./assets/images/share-fill.svg" alt="logo" height="30" class="img-mar" id="logoimg">polls@NCIT</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#feature-section">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#about-section">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  User
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Student</a></li>
+                  <li><a class="dropdown-item" href="#">Administration</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#footer-sec">Contact Us</a></li>
+                </ul>
+              </li>
+            </ul>
+            <img src="./assets/images/icons8-moon-100.png" alt="moon" height="40" id="lightdark"/>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container sign-in-page">
+      <main class="form-signin w-100 m-auto">
+        <form>
+          <img class="mb-4" src="./assets/images/share-fill.svg" alt="" width="72" height="57" id="signinlogo">
+          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+      
+          <div class="form-check text-start my-3">
+            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Remember me
+            </label>
+          </div>
+          <button class="btn btn-primary w-100 py-2 btn-size" type="submit">Sign in</button>
+          <p class="mt-5 mb-3 text-body-secondary">© 2024</p>
+        </form>
+      </main>
+      </div>
+      
+
+
+      <script src="./logic.js"></script>
+</body>
