@@ -50,3 +50,27 @@ border-radius: 0.75rem;
 #signuplogo {
   margin: 0;
 }
+.image-style {
+  text-align: center;
+  margin-top: 15rem;
+}
+
+.form-contain {
+  max-width: 400px;
+  margin-left: 5rem;
+  margin-top: 8rem;
+}
+
+.foot-div {
+  margin-top: 0;
+}
+.form-control {
+  margin-bottom: 2rem;
+}
+.sec-con {
+  margin-top: 3rem;
+  height: 70vh;
+}
+.main-con {
+  height: 80vh;
+}
