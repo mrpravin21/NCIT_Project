@@ -1,3 +1,7 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="">
 
@@ -7,14 +11,14 @@
   <title>polls@NCIT</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-  <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/icons8-share-32.png">
+  <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/dark_fav.png">
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary nav-padd fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html"><img src="./assets/images/share-fill.svg" alt="logo" height="30" class="img-mar" id="logoimg">polls@NCIT</a>
+          <a class="navbar-brand" href="./index.php"><img src="./assets/images/light_logo.png" alt="logo" height="30" class="img-mar" id="logoimg">polls@NCIT</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -24,10 +28,10 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.html#feature-section">Features</a>
+                <a class="nav-link" href="index.php#feature-section">Features</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.html#about-section">About Us</a>
+                <a class="nav-link" href="index.php#about-section">About Us</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,7 +41,7 @@
                   <li><a class="dropdown-item" href="#">Student</a></li>
                   <li><a class="dropdown-item" href="#">Administration</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#footer-sec">Contact Us</a></li>
+                  <li><a class="dropdown-item" href="index.php#footer-sec">Contact Us</a></li>
                 </ul>
               </li>
             </ul>
@@ -48,17 +52,17 @@
 
       <div class="container sign-in-page">
       <main class="form-signin w-100 m-auto">
-        <form>
-          <img class="mb-4" src="./assets/images/share-fill.svg" alt="" width="72" height="57" id="signinlogo">
-          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+          <img class="mb-4 mar-in-signin" src="./assets/images/register-logo.png" alt="" width="57" height="57" id="signinlogo"><br><br>
+          <!--<h1 class="h3 mb-4 fw-normal">Please sign in</h1>-->
       
           <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <input type="email" class="form-control" id="email_id" name="email_id" placeholder="name@example.com" value="<?php if(isset($_COOKIE['email_id'])){ echo $_COOKIE['email_id']; } ?>" required>
+            <label for="email_id">College email address</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+            <input type="password" class="form-control" id="user_pass" name="user_pass" placeholder="Password" value="<?php if(isset($_COOKIE['user_pass'])){ echo $_COOKIE['user_pass']; }?>" required>
+            <label for="user_pass">Password</label>
           </div>
       
           <div class="form-check text-start my-3">
@@ -67,8 +71,9 @@
               Remember me
             </label>
           </div>
-          <button class="btn btn-primary w-100 py-2 btn-size" type="submit">Sign in</button>
-          <p class="mt-5 mb-3 text-body-secondary">© 2024</p>
+          <input type="submit" name="submit" value="Sign In" class="btn btn-primary w-100 py-2 btn-size">
+          <p class="mt-4 mb-3 mar-in-signin">Don't have an account? <a href="signup.php">Sign Up</a></p>
+          <p class="mt-5 mb-3 text-body-secondary">© 2024 polls@NCIT</p>
         </form>
       </main>
       </div>
@@ -77,3 +82,40 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       <script src="./logic.js"></script>
 </body>
+</html>
+<?php
+ob_start();
+include 'config.php';
+session_start();
+if(isset($_POST['submit'])){
+  $email_id=$_POST['email_id'];
+  $user_pass=$_POST['user_pass'];
+  if(!empty($email_id) && !empty($user_pass)){
+    $match_query = "SELECT * FROM users WHERE email_id = '$email_id' AND user_pass = '$user_pass' ";
+    $match_query_res = mysqli_query($conn, $match_query);
+    $match_count = mysqli_num_rows($match_query_res);
+    if($match_count>0){
+      $_SESSION['email_id']=$email_id;
+      $_SESSION['loggedIn']=true;
+      echo '<script>window.location.href = "./home.php";</script>';
+      #header("location:./home.html");
+      exit;
+    }
+    else{
+      ?>
+      <script>
+        alert("Invalid Credentials");
+      </script>
+      <?php
+    }
+  }
+  else{
+    ?>
+    <script>
+      alert("Enter your credentials");
+    </script>
+    <?php
+  }
+}
+ob_end_flush();
+?>

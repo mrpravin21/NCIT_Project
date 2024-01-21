@@ -1,3 +1,6 @@
+<?php
+include 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="">
 
@@ -55,8 +58,8 @@
           <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><span id="main-text">polls@NCIT</span> is a<br>NCIT dedicated portal to share views and resources</h1>
           <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <a href="./signin.html"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Sign In</button></a>
-            <a href="./signup.html"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign Up</button></a>
+            <a href="./signin.php"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Sign In</button></a>
+            <a href="./signup.php"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign Up</button></a>
           </div>
         </div>
       </div>
@@ -195,5 +198,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="./logic.js"></script>
+    
   </body>
 </html>

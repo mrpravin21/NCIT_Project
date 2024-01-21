@@ -47,9 +47,6 @@ border-radius: 0.75rem;
   width: 50%;
   margin-bottom: 5rem;
 }
-#signuplogo {
-  margin: 0;
-}
 .image-style {
   text-align: center;
   margin-top: 15rem;
@@ -73,4 +70,17 @@ border-radius: 0.75rem;
 }
 .main-con {
   height: 80vh;
+}
+.department-style {
+  margin-top: 1rem;
+}
+.mar-in-signin {
+  margin-left: 4rem;
+}
+#signinlogo {
+  margin-left: 9rem;
+  
+}
+.main-text {
+  color: rgb(0, 0, 150);
 }

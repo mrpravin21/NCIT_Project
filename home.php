@@ -39,6 +39,14 @@
                       <li><a class="dropdown-item" href="#footer-sec">Contact Us</a></li>
                     </ul>
                   </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="./assets/images/user-profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="./signout.php">Sign Out</a></li>
+                    </ul>
+                  </li>
                 </ul>
                 <img src="./assets/images/icons8-moon-100.png" alt="moon" height="40" id="lightdark"/>
               </div>
@@ -94,3 +102,12 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       <script src="./logic.js"></script>
 </body>
+</html>
+<?php
+include 'config.php';
+session_start();
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
+  header("location: login.php");
+  exit;
+}
+?>

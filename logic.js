@@ -1,4 +1,4 @@
-/*let icon = document.getElementById("lightdark");
+let icon = document.getElementById("lightdark");
 let logo = document.getElementById("logoimg");
 let footlogo = document.getElementById("footerlogo");
 let twitter = document.getElementById("twitter");
@@ -31,8 +31,8 @@ icon.onclick = function toggleTheme() {
         signinlogo.src = "./assets/images/share-fill.svg";
         }
     }
-*/
-let icon = document.getElementById("lightdark");
+
+/*let icon = document.getElementById("lightdark");
 let logo = document.getElementById("logoimg");
 let footlogo = document.getElementById("footerlogo");
 let twitter = document.getElementById("twitter");
@@ -92,3 +92,4 @@ if (hasDarkModePreference) {
 
 // Attach the toggleTheme function to the icon's click event
 icon.onclick = toggleTheme;
+*/
