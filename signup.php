@@ -93,7 +93,7 @@ ini_set('display_errors', 1);
                             <label for="user_pass">Password</label>
                         </div>
                         <input type="submit" name="submit" value="Sign Up" class="btn btn-primary w-100 py-2 btn-size">
-                        <p class="mt-4 mb-3 mar-in-signin">Already have an account? <a href="signin.php">Sign In</a></p>
+                        <p class="mt-4 mb-3 mar-in-signin">Already have an account? <a href="signin.php" style="text-decoration:none;">Sign In</a></p>
                     </form>
                 </div>
             </div>
@@ -133,6 +133,7 @@ if(isset($_POST['submit'])){
       if ($insert_query_res) {
         setcookie('email_id', $email_id, time() + (86400*4), "/");
         echo '<script>alert("Insertion Successful"); window.location.href = "./signin.php";</script>';
+        #header("location:signin.php");
         exit;
       }
       

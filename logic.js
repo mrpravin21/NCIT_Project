@@ -6,6 +6,8 @@ let insta = document.getElementById("insta");
 let facebook = document.getElementById("facebook");
 let text = document.getElementById("main-text"); 
 let signinlogo = document.getElementById("signinlogo");
+let signuplogo = document.getElementById("img-logo");
+let logmeout = document.getElementById("logmeout");
 icon.onclick = function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute("data-bs-theme");
     if (currentTheme === "light") {
@@ -16,8 +18,10 @@ icon.onclick = function toggleTheme() {
         twitter.src = "./assets/images/dark_twitter.png";
         insta.src = "./assets/images/insta_dark.png";
         facebook.src = "./assets/images/facebook_dark.png";
+        signinlogo.src = "./assets/images/register-logo-dark.png";
+        signuplogo.src = "./assets/images/register-logo-dark.png";
+        logmeout.src = "./assets/images/logmeout-dark.png";
         text.style.color = "rgb(23, 69, 252)";
-        signinlogo.src = "./assets/images/icons8-share-24.png";
     } 
     else {
         document.documentElement.setAttribute("data-bs-theme", "light");
@@ -27,8 +31,10 @@ icon.onclick = function toggleTheme() {
         twitter.src = "./assets/images/icons8-twitter-50.png";
         insta.src = "./assets/images/icons8-instagram-50.png";
         facebook.src = "./assets/images/icons8-facebook-50.png";
+        signinlogo.src = "./assets/images/register-logo.png";
+        signuplogo.src = "./assets/images/register-logo.png";
+        logmeout.src = "./assets/images/logmeout.png";
         text.style.color = "rgb(0, 0, 150)";
-        signinlogo.src = "./assets/images/share-fill.svg";
         }
     }
 

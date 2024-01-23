@@ -84,3 +84,10 @@ border-radius: 0.75rem;
 .main-text {
   color: rgb(0, 0, 150);
 }
+.vote-button {
+  display: inline-block;
+}
+
+.view-results-button {
+  display: inline-block;
+}

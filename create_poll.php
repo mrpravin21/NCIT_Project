@@ -1,7 +1,3 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="">
 
@@ -44,6 +40,14 @@ ini_set('display_errors', 1);
                   <li><a class="dropdown-item" href="index.php#footer-sec">Contact Us</a></li>
                 </ul>
               </li>
+              <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="./assets/images/user-profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="./signout.php">Sign Out</a></li>
+                    </ul>
+                </li>
             </ul>
             <img src="./assets/images/icons8-moon-100.png" alt="moon" height="40" id="lightdark"/>
           </div>
@@ -53,27 +57,27 @@ ini_set('display_errors', 1);
       <div class="container sign-in-page">
       <main class="form-signin w-100 m-auto">
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-          <img class="mb-4 mar-in-signin" src="./assets/images/register-logo.png" alt="" width="57" height="57" id="signinlogo"><br><br>
+          <!--<img class="mb-4 mar-in-signin" src="./assets/images/poll-img.png" alt="" width="57" height="57" id="signinlogo"><br><br>-->
           <!--<h1 class="h3 mb-4 fw-normal">Please sign in</h1>-->
       
           <div class="form-floating">
-            <input type="email" class="form-control" id="email_id" name="email_id" placeholder="name@example.com" value="<?php if(isset($_COOKIE['email_id'])){ echo $_COOKIE['email_id']; } ?>" required>
-            <label for="email_id">College email address</label>
+            <input type="text" class="form-control" id="poll_title" name="poll_title" placeholder="Poll title" required>
+            <label for="poll_title">Poll title</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="user_pass" name="user_pass" placeholder="Password" value="<?php if(isset($_COOKIE['user_pass'])){ echo $_COOKIE['user_pass']; }?>" required>
-            <label for="user_pass">Password</label>
+            <textarea class="form-control" id="poll_description" name="poll_description" placeholder="Poll title" style="height:5rem;" required></textarea>
+            <label for="poll_description">Poll description</label>
           </div>
-      
-          <div class="form-check text-start my-3">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Remember me
-            </label>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="poll_creator" name="poll_creator" placeholder="Poll creator" required>
+            <label for="poll_creator">Poll creator</label>
           </div>
-          <input type="submit" name="submit" value="Sign In" class="btn btn-primary w-100 py-2 btn-size">
-          <p class="mt-4 mb-3 mar-in-signin">Don't have an account? <a href="signup.php" style="text-decoration:none;">Sign Up</a></p>
-          <p class="mt-5 mb-3 text-body-secondary">© 2024 polls@NCIT</p>
+          <div class="form-floating">
+            <input type="datetime-local" class="form-control" id="poll_end_time" name="poll_end_time" placeholder="Poll end time" required>
+            <label for="poll_end_time">Poll end time</label>
+          </div>  
+          <input type="submit" name="submit_poll" value="Create Poll" class="btn btn-primary w-100 py-2 btn-size">
+          <p class="mt-4 mb-3 mar-in-signin">Want to try out something else? <a href="home.php" style="text-decoration:none;">Go Back</a></p>
         </form>
       </main>
       </div>
@@ -84,38 +88,25 @@ ini_set('display_errors', 1);
 </body>
 </html>
 <?php
-ob_start();
 include 'config.php';
 session_start();
-if(isset($_POST['submit'])){
-  $email_id=$_POST['email_id'];
-  $user_pass=$_POST['user_pass'];
-  if(!empty($email_id) && !empty($user_pass)){
-    $match_query = "SELECT * FROM users WHERE email_id = '$email_id' AND user_pass = '$user_pass' ";
-    $match_query_res = mysqli_query($conn, $match_query);
-    $match_count = mysqli_num_rows($match_query_res);
-    if($match_count>0){
-      $_SESSION['email_id']=$email_id;
-      $_SESSION['loggedIn']=true;
-      echo '<script>window.location.href = "./home.php";</script>';
-      #header("location:./home.html");
-      exit;
-    }
-    else{
-      ?>
-      <script>
-        alert("Invalid Credentials");
-      </script>
-      <?php
-    }
-  }
-  else{
-    ?>
-    <script>
-      alert("Enter your credentials");
-    </script>
-    <?php
-  }
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
+  header("location: signin.php");
+  #echo '<script>window.location.href = "signin.php";</script>';
 }
-ob_end_flush();
+
+if (isset($_POST['submit_poll'])) {
+    $title = $_POST['poll_title'];
+    $description = $_POST['poll_description'];
+    $endTime = $_POST['poll_end_time'];
+    $creator = $_POST['poll_creator'];
+    $createPollQuery = "INSERT INTO poll (poll_title, poll_description, poll_creator, poll_create_time, poll_end_time, poll_yes_votes, poll_no_votes) VALUES ('$title', '$description', '$creator', NOW(), '$endTime', 0, 0)";
+    $createPollResult = mysqli_query($conn, $createPollQuery);
+
+    if ($createPollResult) {
+      echo '<script>alert("Poll created successfully!"); window.location.href = "home.php";</script>';
+    } else {
+        echo '<script>alert("Error creating poll.");</script>';
+    }
+}
 ?>

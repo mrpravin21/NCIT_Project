@@ -23,29 +23,13 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#feature-section">Features</a>
+                    <a class="nav-link" href="index.php#feature-section">Features</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#about-section">About Us</a>
+                    <a class="nav-link" href="index.php#about-section">About Us</a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      User
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Student</a></li>
-                      <li><a class="dropdown-item" href="#">Administration</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#footer-sec">Contact Us</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="./assets/images/user-profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="./signout.php">Sign Out</a></li>
-                    </ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="signout.php"><img src="./assets/images/logmeout.png" alt="logout" width="32" height="32" class="rounded-circle" id="logmeout"></a>
                   </li>
                 </ul>
                 <img src="./assets/images/icons8-moon-100.png" alt="moon" height="40" id="lightdark"/>
@@ -56,10 +40,12 @@
         <div class="container py-4 mt-5">
         <div class="p-5 mb-4 bg-body-tertiary rounded-3 mt-5 main-con">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Polls Section</h1>
-            <p class="col-md-8 fs-4">Create new polls to be heared and vote on other's to state your views</p>
-            <button class="btn btn-primary btn-lg" type="button">Example button</button>
+            <div class="polls-container" style="max-height: 350px; overflow-y: auto;">
+              <?php include 'view_polls.php'; ?>
+            </div>
           </div>
+          <a href="create_poll.php"><button class="btn btn-primary btn-lg" type="button">Create New Poll</button></a>
+            
         </div>
     
         <div class="row align-items-md-stretch sec-con">
@@ -107,7 +93,7 @@
 include 'config.php';
 session_start();
 if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
-  header("location: login.php");
-  exit;
+  #echo '<script>window.location.href = "signin.php";</script>';
+  header('location: signin.php');
 }
 ?>
