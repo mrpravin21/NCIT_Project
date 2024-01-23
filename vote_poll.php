@@ -33,29 +33,53 @@ if (isset($_REQUEST['poll_id'])) {
             }
         }
 
-        // Render HTML form
+        // Render HTML form with Bootstrap styling
         ?>
-        <!-- Your HTML form to vote on a poll -->
         <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Vote</title>
+            <!-- Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+            <!-- Your custom styles -->
+            <style>
+                body {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                }
+
+                .vote-form {
+                    width: 300px;
+                }
+            </style>
         </head>
         <body>
-            <h2>Vote: <?php echo $poll['poll_title']; ?></h2>
-            <form action="vote_poll.php" method="post" onsubmit="return submitVote();">
-                <input type="hidden" name="poll_id" value="<?php echo $pollId; ?>">
-                <label for="vote_option">Your Vote:</label>
-                <select id="vote_option" name="vote_option" required>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-                <br>
-                <input type="submit" name="submit_vote" value="Submit Vote">
-            </form>
+            <div class="vote-form">
+                <h2 class="text-center">Vote: <?php echo $poll['poll_title']; ?></h2>
+                <form action="vote_poll.php" method="post" onsubmit="return submitVote();">
+                    <div class="form-floating">
+                        <input type="hidden" name="poll_id" value="<?php echo $pollId; ?>">
+                        <div class="mb-3">
+                            <label for="vote_option" class="form-label">Your Vote:</label>
+                            <select id="vote_option" name="vote_option" class="form-select form-control" required>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 text-center mt-5">
+                            <input type="submit" name="submit_vote" value="Submit Vote" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
 
+            <!-- Bootstrap JS and Popper.js -->
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-GLhlTQ8iK9t17F89ZL3J17dS9A1G0brEz0tZ+6u7FqU8fM+FFOhC6dFpxB+uI" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
             <script>
                 function submitVote() {
                     var voteOption = document.getElementById("vote_option").value;
@@ -68,7 +92,6 @@ if (isset($_REQUEST['poll_id'])) {
             </script>
         </body>
         </html>
-
         <?php
     } else {
         echo "Poll not found.";
