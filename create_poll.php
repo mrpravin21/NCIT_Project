@@ -1,3 +1,11 @@
+<?php
+include 'config.php';
+session_start();
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
+  echo '<script>alert("session not set"); window.location.href = "signin.php";</script>';
+  #header('location: signin.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="">
 
@@ -12,47 +20,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary nav-padd fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./index.php"><img src="./assets/images/light_logo.png" alt="logo" height="30" class="img-mar" id="logoimg">polls@NCIT</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.php#feature-section">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.php#about-section">About Us</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  User
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Student</a></li>
-                  <li><a class="dropdown-item" href="#">Administration</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="index.php#footer-sec">Contact Us</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="./assets/images/user-profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="./signout.php">Sign Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <img src="./assets/images/icons8-moon-100.png" alt="moon" height="40" id="lightdark"/>
-          </div>
-        </div>
-      </nav>
+
 
       <div class="container sign-in-page">
       <main class="form-signin w-100 m-auto">

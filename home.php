@@ -1,3 +1,11 @@
+<?php
+include 'config.php';
+session_start();
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
+  echo '<script>alert("Please Sign In First!"); window.location.href = "signin.php";</script>';
+  #header('location: signin.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="">
 
@@ -11,31 +19,34 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary nav-padd fixed-top">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="./assets/images/light_logo.png" alt="logo" height="30" class="img-mar" id="logoimg">polls@NCIT</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.php#feature-section">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.php#about-section">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="signout.php"><img src="./assets/images/logmeout.png" alt="logout" width="32" height="32" class="rounded-circle" id="logmeout"></a>
-                  </li>
-                </ul>
-                <img src="./assets/images/icons8-moon-100.png" alt="moon" height="40" id="lightdark"/>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded fixed-top p-3" aria-label="Thirteenth navbar example">
+          <div class="container-fluid">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse d-lg-flex collapse" id="navbarsExample11" style="">
+              <a class="navbar-brand col-lg-3 me-0" href="#"><img src="./assets/images/light_logo.png" alt="logo" height="30" class="img-mar" id="logoimg">NCITArena</a>
+              <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                </li>
+              </ul>
+              <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                <a href="signout.php"><button class="btn btn-primary">Sign Out</button></a>
               </div>
             </div>
-          </nav>
+          </div>
+        </nav>
 
         <div class="container py-4 mt-5">
         <div class="p-5 mb-4 bg-body-tertiary rounded-3 mt-5 main-con">
@@ -89,11 +100,3 @@
       <script src="./logic.js"></script>
 </body>
 </html>
-<?php
-include 'config.php';
-session_start();
-if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
-  #echo '<script>window.location.href = "signin.php";</script>';
-  header('location: signin.php');
-}
-?>

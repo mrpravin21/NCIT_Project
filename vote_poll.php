@@ -1,5 +1,11 @@
 <?php
 include 'config.php';
+session_start();
+
+if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != true) {
+    echo '<script>alert("Session not set"); window.location.href = "signin.php";</script>';
+    exit;
+}
 
 // Check if the poll_id is set in both GET and POST requests
 if (isset($_REQUEST['poll_id'])) {
@@ -11,6 +17,16 @@ if (isset($_REQUEST['poll_id'])) {
     $poll = mysqli_fetch_assoc($poll_result);
 
     if ($poll) {
+        // Check if the user has already voted for this poll
+        $college_id = $_SESSION['college_id']; // Assuming you have a user_id in your users table
+        $checkVoteQuery = "SELECT * FROM votes WHERE college_id = $college_id AND poll_id = $pollId";
+        $checkVoteResult = mysqli_query($conn, $checkVoteQuery);
+
+        if (mysqli_num_rows($checkVoteResult) > 0) {
+            echo '<script>alert("You have already voted for this poll."); window.location.href = "home.php";</script>';
+            exit;
+        }
+
         // Check if the form is submitted
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_vote'])) {
             $voteOption = $_POST['vote_option'];
@@ -27,7 +43,16 @@ if (isset($_REQUEST['poll_id'])) {
             $votePollResult = mysqli_query($conn, $votePollQuery);
 
             if ($votePollResult) {
-                echo '<script>alert("Vote submitted successfully!"); window.location.href = "home.php";</script>';
+                // Record the user's vote in the votes table
+                $recordVoteQuery = "INSERT INTO votes (college_id, poll_id, vote_option) VALUES ($college_id, $pollId, '$voteOption')";
+                $recordVoteResult = mysqli_query($conn, $recordVoteQuery);
+
+                if ($recordVoteResult) {
+                    echo '<script>alert("Vote submitted successfully!"); window.location.href = "home.php";</script>';
+                    exit;
+                } else {
+                    echo '<script>alert("Error recording vote.");</script>';
+                }
             } else {
                 echo '<script>alert("Error submitting vote.");</script>';
             }

@@ -1,6 +1,40 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ob_start();
+include 'config.php';
+session_start();
+if(isset($_POST['submit'])){
+  $college_id=$_POST['college_id'];
+  $user_pass=$_POST['user_pass'];
+  if(!empty($college_id) && !empty($user_pass)){
+    $match_query = "SELECT * FROM users WHERE college_id = '$college_id' AND user_pass = '$user_pass'";
+    $match_query_res = mysqli_query($conn, $match_query);
+    $match_count = mysqli_num_rows($match_query_res);
+    if($match_count>0){
+      $_SESSION['college_id']=$college_id;
+      $_SESSION['loggedIn']=true;
+      echo '<script>window.location.href = "./home.php";</script>';
+      #header("location:./home.html");
+      exit;
+    }
+    else{
+      ?>
+      <script>
+        alert("Invalid Credentials");
+      </script>
+      <?php
+    }
+  }
+  else{
+    ?>
+    <script>
+      alert("Enter your credentials");
+    </script>
+    <?php
+  }
+}
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="">
@@ -57,8 +91,8 @@ ini_set('display_errors', 1);
           <!--<h1 class="h3 mb-4 fw-normal">Please sign in</h1>-->
       
           <div class="form-floating">
-            <input type="email" class="form-control" id="email_id" name="email_id" placeholder="name@example.com" value="<?php if(isset($_COOKIE['email_id'])){ echo $_COOKIE['email_id']; } ?>" required>
-            <label for="email_id">College email address</label>
+            <input type="text" class="form-control" id="college_id" name="college_id" placeholder="College Roll Number" value="<?php if(isset($_COOKIE['college_id'])){ echo $_COOKIE['college_id']; } ?>" required>
+            <label for="college_id">College Roll Number</label>
           </div>
           <div class="form-floating">
             <input type="password" class="form-control" id="user_pass" name="user_pass" placeholder="Password" value="<?php if(isset($_COOKIE['user_pass'])){ echo $_COOKIE['user_pass']; }?>" required>
@@ -83,39 +117,3 @@ ini_set('display_errors', 1);
       <script src="./logic.js"></script>
 </body>
 </html>
-<?php
-ob_start();
-include 'config.php';
-session_start();
-if(isset($_POST['submit'])){
-  $email_id=$_POST['email_id'];
-  $user_pass=$_POST['user_pass'];
-  if(!empty($email_id) && !empty($user_pass)){
-    $match_query = "SELECT * FROM users WHERE email_id = '$email_id' AND user_pass = '$user_pass' ";
-    $match_query_res = mysqli_query($conn, $match_query);
-    $match_count = mysqli_num_rows($match_query_res);
-    if($match_count>0){
-      $_SESSION['email_id']=$email_id;
-      $_SESSION['loggedIn']=true;
-      echo '<script>window.location.href = "./home.php";</script>';
-      #header("location:./home.html");
-      exit;
-    }
-    else{
-      ?>
-      <script>
-        alert("Invalid Credentials");
-      </script>
-      <?php
-    }
-  }
-  else{
-    ?>
-    <script>
-      alert("Enter your credentials");
-    </script>
-    <?php
-  }
-}
-ob_end_flush();
-?>
