@@ -7,7 +7,7 @@ include 'config.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>polls@NCIT</title>
+  <title>NCITArena</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/dark_fav.png">
@@ -17,7 +17,7 @@ include 'config.php';
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary nav-padd fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="./assets/images/light_logo.png" alt="logo" height="30" class="img-mar" id="logoimg">polls@NCIT</a>
+          <a class="navbar-brand" href="#"><img src="./assets/images/light_logo.png" alt="logo" height="30" class="img-mar" id="logoimg">NCITArena</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -37,8 +37,8 @@ include 'config.php';
                   User
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Student</a></li>
-                  <li><a class="dropdown-item" href="#">Administration</a></li>
+                  <li><a class="dropdown-item" href="signin.php">Student</a></li>
+                  <li><a class="dropdown-item" href="admin_signin.php">Administration</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#footer-sec">Contact Us</a></li>
                 </ul>
@@ -55,8 +55,8 @@ include 'config.php';
           <img src="https://gatton.uky.edu/sites/default/files/iStock-networkWEB.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
         </div>
         <div class="col-lg-6">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><span id="main-text">polls@NCIT</span> is a<br>NCIT dedicated portal to share views and resources</h1>
-          <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><span id="main-text">NCITArena</span> is a<br>NCIT dedicated portal to share views and resources</h1>
+          <p class="lead">Welcome to NCITArena, the dynamic platform where your opinion truly matters! At NCITArena, we believe in fostering a vibrant community where every student's voice contributes to shaping the collective narrative.NCITArena is more than just a poll website, it's a virtual space designed exclusively for the students of NCIT to share their thoughts, perspectives, and insights</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <a href="./signin.php"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Sign In</button></a>
             <a href="./signup.php"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign Up</button></a>
@@ -74,9 +74,9 @@ include 'config.php';
               <img src="./assets/images/icons8-poll-50.png" alt="poll" height="40"/>
             </div>
             <h3 class="fs-2 text-body-emphasis">Polls</h3>
-            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-            <a href="#" class="icon-link">
-              Call to action
+            <p>Create new polls and vote on the polls started by other students, expressing your opinion on critical matters.</p>
+            <a href="signin.php" class="icon-link" style="text-decoration: none;">
+              See More
               <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
             </a>
           </div>
@@ -85,9 +85,9 @@ include 'config.php';
                 <img src="./assets/images/icons8-event-64.png" alt="events" height="40"/>
             </div>
             <h3 class="fs-2 text-body-emphasis">Events</h3>
-            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-            <a href="#" class="icon-link">
-              Call to action
+            <p>Share any upcoming events to be held at NCIT so that students can discover upcoming events, encouraging them towards active participation creating an inclusive environment.</p>
+            <a href="signin.php" class="icon-link" style="text-decoration: none;">
+              See More
               <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
             </a>
           </div>
@@ -96,8 +96,8 @@ include 'config.php';
                 <img src="./assets/images/icons8-book-50.png" alt="books" height="40"/>
             </div>
             <h3 class="fs-2 text-body-emphasis">Resources</h3>
-            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-            <a href="#" class="icon-link">
+            <p>Share college materials and resources needed for academic excellence facilitating a community based approach to learning.</p>
+            <a href="signin.php" class="icon-link" style="text-decoration: none;">
               See More
               <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
             </a>
@@ -110,23 +110,23 @@ include 'config.php';
       <div class="container marketing">
 
         <!-- Three columns of text below the carousel -->
-        <div class="row item-head">
+        <div class="row item-head mt-5">
           <div class="col-lg-4">
             <img src="./assets/images/me.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
-            <h2 class="top-head fw-normal">Heading</h2>
-            <p>Co-Creator of polls@NCIT</p>
+            <h2 class="top-head fw-normal">Rohan</h2>
+            <p>Co-Creator of NCITArena</p>
             <p><a class="btn btn-secondary" href="#">View details »</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img src="./assets/images/me.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
             <h2 class="top-head fw-normal">Pravin</h2>
-            <p>Co-Creator of polls@NCIT</p>
+            <p>Co-Creator of NCITArena</p>
             <p><a class="btn btn-secondary" href="#">View details »</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img src="./assets/images/me.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
-            <h2 class="top-head fw-normal">Heading</h2>
-            <p>Co-Creator of polls@NCIT</p>
+            <h2 class="top-head fw-normal">Sushant</h2>
+            <p>Co-Creator of NCITArena</p>
             <p><a class="btn btn-secondary" href="#">View details »</a></p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
@@ -134,15 +134,17 @@ include 'config.php';
     
         <!-- START THE FEATURETTES -->
     
-        <hr class="featurette-divider">
+        <hr class="featurette-divider mt-5">
     
         <div class="row featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
-            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+            <h2 class="featurette-heading fw-normal lh-1">Start a new <span class="text-body-secondary">Poll</span></h2>
+            <p class="lead mt-5">NCITArena 'polls' is used to collect student opinions on various issues within the college. These polls identify concerns, gather preferences, and guide decision making. Through clear communication and active participation, students contribute valuable insights that influence actions taken to enhance the overall college experience.</p>
           </div>
           <div class="col-md-5">
-            <img src="./assets/images/poll.png" alt="notes" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto img-bor" width="500" height="500">
+            <a href="signin.php">
+              <img src="./assets/images/poll.png" alt="notes" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto img-bor" width="500" height="500">
+            </a>
           </div>
         </div>
     
@@ -150,11 +152,13 @@ include 'config.php';
     
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
-            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+            <h2 class="featurette-heading fw-normal lh-1">Share an <span class="text-body-secondary">Event</span></h2>
+            <p class="lead mt-5">The 'Event' in NCITArena serves as a dynamic platform where NCIT clubs share upcoming activities. It's a hub for students to discover diverse events, encouraging active participation , creating a dynamic and inclusive environment that reflects the diversity and vitality of the NCIT community. Explore, engage, and be part of the excitement at NCIT.</p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img src="./assets/images/event.png" alt="notes" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto img-bor" width="500" height="500">
+            <a href="signin.php">
+              <img src="./assets/images/event.png" alt="notes" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto img-bor" width="500" height="500">
+            </a>
           </div>
         </div>
     
@@ -162,11 +166,13 @@ include 'config.php';
     
         <div class="row featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
-            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+            <h2 class="featurette-heading fw-normal lh-1">Share your <span class="text-body-secondary">Resources</span></h2>
+            <p class="lead mt-5">The 'Resource' column in NCITArena serves as a collaborative space where students can share and access notes, internal exam questions, and other educational materials. It facilitates a community driven approach to learning, allowing students to benefit from each other's resources, and enhancing the overall educational experience at NCIT.</p>
           </div>
           <div class="col-md-5">
-            <img src="./assets/images/SHARE YOUR NOTES.png" alt="notes" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto img-bor" width="500" height="500">
+            <a href="signin.php">
+              <img src="./assets/images/SHARE YOUR NOTES.png" alt="notes" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto img-bor" width="500" height="500">
+            </a>
           </div>
         </div>
     
@@ -184,7 +190,7 @@ include 'config.php';
             <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
               <img src="./assets/images/light_logo.png" alt="logo" height="40" id="footerlogo">
             </a>
-            <span class="mb-3 mb-md-0 text-body-secondary">© 2024 polls@NCIT</span>
+            <span class="mb-3 mb-md-0 text-body-secondary">© 2024 NCITArena</span>
           </div>
       
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

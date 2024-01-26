@@ -36,10 +36,10 @@ border-radius: 0.75rem;
   color: rgb(0, 0, 150);
 }
 .sign-in-page {
-  margin-top: 10rem;
+  margin-top: 9rem;
   width: 30%;
   margin-left: 35%;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   
 }
 .signup-page {
@@ -55,7 +55,7 @@ border-radius: 0.75rem;
 .form-contain {
   max-width: 400px;
   margin-left: 5rem;
-  margin-top: 8rem;
+  margin-top: 7rem;
 }
 
 .foot-div {
@@ -66,7 +66,7 @@ border-radius: 0.75rem;
 }
 .sec-con {
   margin-top: 3rem;
-  height: 70vh;
+  height: 75vh;
 }
 .main-con {
   height: 80vh;

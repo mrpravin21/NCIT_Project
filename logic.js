@@ -36,8 +36,7 @@ icon.onclick = function toggleTheme() {
         logmeout.src = "./assets/images/logmeout.png";
         text.style.color = "rgb(0, 0, 150)";
         }
-    }
-
+    }  
 /*let icon = document.getElementById("lightdark");
 let logo = document.getElementById("logoimg");
 let footlogo = document.getElementById("footerlogo");

@@ -1,0 +1,79 @@
+.img-mar {
+    margin-right: 1rem;
+}
+.hero-item {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.feature-icon {
+width: 4rem;
+height: 4rem;
+border-radius: 0.75rem;
+}
+.item-head {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.top-head {
+  margin-top: 1rem;
+}
+.top-sec {
+  margin-top: 2rem;
+}
+.nav-padd {
+  padding: 1rem;
+}
+#lightdark {
+  cursor: pointer;
+}
+.img-bor {
+  border-radius: 15%;
+}
+#main-sec {
+  margin-top: 5rem;
+}
+#main-text {
+  color: rgb(0, 0, 150);
+}
+.sign-in-page {
+  margin-top: 10rem;
+  width: 30%;
+  margin-left: 35%;
+  margin-bottom: 6rem;
+  
+}
+.signup-page {
+  margin-top: 10rem;
+  width: 50%;
+  margin-bottom: 5rem;
+}
+#signuplogo {
+  margin: 0;
+}
+.image-style {
+  text-align: center;
+  margin-top: 15rem;
+}
+
+.form-contain {
+  max-width: 400px;
+  margin-left: 5rem;
+  margin-top: 8rem;
+}
+
+.foot-div {
+  margin-top: 0;
+}
+.form-control {
+  margin-bottom: 2rem;
+}
+.sec-con {
+  margin-top: 3rem;
+  height: 70vh;
+}
+.main-con {
+  height: 80vh;
+}
+.hr{
+  margin: 3 rem;
+}

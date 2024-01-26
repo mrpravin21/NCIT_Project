@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>polls@NCIT</title>
+  <title>NCITArena</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/dark_fav.png">
@@ -18,7 +18,7 @@ ini_set('display_errors', 1);
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary nav-padd fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.php"><img src="./assets/images/light_logo.png" alt="logo" height="30" class="img-mar" id="logoimg">polls@NCIT</a>
+          <a class="navbar-brand" href="index.php"><img src="./assets/images/light_logo.png" alt="logo" height="30" class="img-mar" id="logoimg">NCITArena</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -38,8 +38,8 @@ ini_set('display_errors', 1);
                   User
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Student</a></li>
-                  <li><a class="dropdown-item" href="#">Administration</a></li>
+                  <li><a class="dropdown-item" href="signin.php">Student</a></li>
+                  <li><a class="dropdown-item" href="admin_signin.php">Administration</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="index.php#footer-sec">Contact Us</a></li>
                 </ul>
@@ -51,7 +51,7 @@ ini_set('display_errors', 1);
       </nav>
 
 
-      <div class="container">
+      <div class="container sign-up-page">
         <main class="form-signin w-100 m-auto form-page">
             <div class="row">
                 <div class="col-md-6 image-style">
@@ -73,7 +73,7 @@ ini_set('display_errors', 1);
                          
                         <div>
                           <label for="department">Department:</label>
-                          <select id="department" name="department" class="form-control department-style">
+                          <select id="department" name="department" class="form-control form-select department-style">
                             <option value="IT">IT</option>
                             <option value="Software">Software</option>
                             <option value="Civil">Civil</option>

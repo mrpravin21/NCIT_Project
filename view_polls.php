@@ -18,7 +18,7 @@ while ($row = mysqli_fetch_assoc($getPollsResult)) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>polls@NCIT</title>
+  <title>NCITArena</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/dark_fav.png">
@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_assoc($getPollsResult)) {
 
 <body>
         <div class="container">
-        <h2 class="mb-4" style="color: grey;">Available Polls</h2>
+        <h2 class="mb-4" style="color: rgb(0, 0, 150);">Available Polls</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <?php foreach ($polls as $poll) : ?>
                 <div class="col">
@@ -39,7 +39,7 @@ while ($row = mysqli_fetch_assoc($getPollsResult)) {
                             <p class="card-text">End Time: <?php echo $poll['poll_end_time']; ?></p>
 
                             <!-- Countdown Timer -->
-                            <div id="countdown_<?php echo $poll['poll_id']; ?>"></div>
+                            <div id="countdown_<?php echo $poll['poll_id']; ?>"></div><br>
 
                             <!-- Always display both buttons -->
                             <a href="view_results.php?poll_id=<?php echo $poll['poll_id']; ?>" data-poll-id="<?php echo $poll['poll_id']; ?>" class="view-results-button">
@@ -68,6 +68,7 @@ while ($row = mysqli_fetch_assoc($getPollsResult)) {
 
                                         if (timerElement) {
                                             timerElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                                            timerElement.style.color = "rgb(0, 0, 150)";
                                         }
 
                                         if (distance < 0) {
