@@ -112,22 +112,22 @@ include 'config.php';
         <!-- Three columns of text below the carousel -->
         <div class="row item-head mt-5">
           <div class="col-lg-4">
-            <img src="./assets/images/me.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
+            <img src="./assets/images/rohan2.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
             <h2 class="top-head fw-normal">Rohan</h2>
             <p>Co-Creator of NCITArena</p>
-            <p><a class="btn btn-secondary" href="#">View details »</a></p>
+            <p><a class="btn btn-secondary" href="https://github.com/roohan54" target="_blank">View details »</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img src="./assets/images/me.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
             <h2 class="top-head fw-normal">Pravin</h2>
             <p>Co-Creator of NCITArena</p>
-            <p><a class="btn btn-secondary" href="#">View details »</a></p>
+            <p><a class="btn btn-secondary" href="https://github.com/mrpravin21" target="_blank">View details »</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <img src="./assets/images/me.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
+            <img src="./assets/images/sushant1.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
             <h2 class="top-head fw-normal">Sushant</h2>
             <p>Co-Creator of NCITArena</p>
-            <p><a class="btn btn-secondary" href="#">View details »</a></p>
+            <p><a class="btn btn-secondary" href="https://www.facebook.com/sushant.sharma59" target="_blank">View details »</a></p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
       
@@ -194,9 +194,9 @@ include 'config.php';
           </div>
       
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="./assets/images/icons8-twitter-50.png" alt="twitter" id="twitter"/></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="./assets/images/icons8-instagram-50.png" alt="instagram" id="insta"/></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="./assets/images/icons8-facebook-50.png" alt="facebook" id="facebook"/></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-twitter-50.png" alt="twitter" id="twitter"/></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-instagram-50.png" alt="instagram" id="insta"/></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-facebook-50.png" alt="facebook" id="facebook"/></a></li>
           </ul>
         </footer>
       </div>
