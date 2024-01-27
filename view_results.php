@@ -1,8 +1,8 @@
 <?php
 include 'config.php';
 session_start();
-if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
-  echo '<script>alert("session not set"); window.location.href = "signin.php";</script>';
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESSION['college_id'])){
+  echo '<script>alert("Please sign in first!"); window.location.href = "signin.php";</script>';
   #header('location: signin.php');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['poll_id'])) {

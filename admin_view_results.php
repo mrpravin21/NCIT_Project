@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 session_start();
-if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true) || !isset($_SESSION['admin_username']){
   echo '<script>alert("Admin access denied!"); window.location.href = "admin_signin.php";</script>';
   #header('location: signin.php');
 }

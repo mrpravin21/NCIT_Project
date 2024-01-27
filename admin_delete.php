@@ -1,17 +1,19 @@
 <?php
 include 'config.php';
 session_start();
-if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESSION['admin_username'])){
   echo '<script>alert("Admin access denied!"); window.location.href = "admin_signin.php";</script>';
   #header('location: signin.php');
 }
 
 if(isset($_POST['delete_poll']) && isset($_POST['poll_id'])){
     $pollIdToDelete = $_POST['poll_id'];
+    $deletevotecount = "DELETE FROM votes WHERE poll_id = $pollIdToDelete";
     $deletePollQuery = "DELETE FROM poll WHERE poll_id = $pollIdToDelete";
+    $deletevotecountres = mysqli_query($conn, $deletevotecount);
     $deletePollResult = mysqli_query($conn, $deletePollQuery);
 
-    if($deletePollResult) {
+    if($deletePollResult && $deletevotecountres) {
         echo '<script>alert("Poll deleted successfully!");</script>';
         // You might want to redirect or reload the page after deletion
         // header("Location: admin_panel.php");
@@ -56,10 +58,11 @@ if(isset($_POST['delete_resource']) && isset($_POST['rid'])){
 $pollsQuery = "SELECT * FROM poll";
 $eventsQuery = "SELECT * FROM events";
 $resourcesQuery = "SELECT * FROM resource";
-
+$usersquery = "SELECT * FROM users";
 $pollsResult = mysqli_query($conn, $pollsQuery);
 $eventsResult = mysqli_query($conn, $eventsQuery);
 $resourcesResult = mysqli_query($conn, $resourcesQuery);
+$usersqueryresult = mysqli_query($conn, $usersquery);
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="">
@@ -79,6 +82,9 @@ $resourcesResult = mysqli_query($conn, $resourcesQuery);
         align-items: center;
         height: 65vh;
         zoom: 120%;
+    }
+    .del-but-siz {
+      font-size: 1.3rem;
     }
   </style>
 </head>
@@ -112,12 +118,12 @@ $resourcesResult = mysqli_query($conn, $resourcesQuery);
     <div class="container mt-5 main-del">
     <div class="row">
       <div class="col">
-        <h2>Delete Polls</h2>
+        <h2 class="main-text del-but-siz">Delete Polls</h2>
         <ul class="list-group">
           <?php while ($poll = mysqli_fetch_assoc($pollsResult)) : ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <?php echo $poll['poll_title']; ?>
-              <form method="post" action="">
+              <form method="post" action="" onsubmit="return confirmDelete();">
                 <input type="hidden" name="poll_id" value="<?php echo $poll['poll_id']; ?>">
                 <button type="submit" name="delete_poll" class="btn btn-danger rounded-pill">Delete</button>
               </form>
@@ -127,12 +133,12 @@ $resourcesResult = mysqli_query($conn, $resourcesQuery);
       </div>
 
       <div class="col">
-        <h2>Delete Events</h2>
+        <h2 class="main-text del-but-siz">Delete Events</h2>
         <ul class="list-group">
           <?php while ($event = mysqli_fetch_assoc($eventsResult)) : ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <?php echo $event['event_title']; ?>
-              <form method="post" action="">
+              <form method="post" action=""onsubmit="return confirmDelete();">
                 <input type="hidden" name="eid" value="<?php echo $event['eid']; ?>">
                 <button type="submit" name="delete_event" class="btn btn-danger rounded-pill">Delete</button>
               </form>
@@ -142,12 +148,12 @@ $resourcesResult = mysqli_query($conn, $resourcesQuery);
       </div>
 
       <div class="col">
-        <h2>Delete Resource</h2>
+        <h2 class="main-text del-but-siz">Delete Resource</h2>
         <ul class="list-group">
           <?php while ($resource = mysqli_fetch_assoc($resourcesResult)) : ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <?php echo $resource['resource_title']; ?>
-              <form method="post" action="">
+              <form method="post" action="" onsubmit="return confirmDelete();">
                 <input type="hidden" name="rid" value="<?php echo $resource['rid']; ?>">
                 <button type="submit" name="delete_resource" class="btn btn-danger rounded-pill">Delete</button>
               </form>
@@ -155,8 +161,24 @@ $resourcesResult = mysqli_query($conn, $resourcesQuery);
           <?php endwhile; ?>
         </ul>
       </div>
+
+  <div class="col">
+        <h2 class="main-text del-but-siz">Delete Users</h2>
+        <ul class="list-group">
+          <?php while ($user = mysqli_fetch_assoc($usersqueryresult)) : ?>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <?php echo $user['full_name']; ?>
+              <form method="post" action="" onsubmit="return confirmDelete();">
+                <input type="hidden" name="college_id" value="<?php echo $user['college_id']; ?>">
+                <button type="submit" name="delete_user" class="btn btn-danger rounded-pill">Delete</button>
+              </form>
+            </li>
+          <?php endwhile; ?>
+        </ul>
+      </div>
     </div>
   </div>
+
     <div class="container foot-div">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text">© 2024 NCITArena</span></p>
@@ -172,5 +194,10 @@ $resourcesResult = mysqli_query($conn, $resourcesQuery);
     </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="./logic.js"></script>
+        <script>
+            function confirmDelete() {
+                return confirm("Are you sure you want to delete?");
+            }
+        </script>
 </body>
 </html>

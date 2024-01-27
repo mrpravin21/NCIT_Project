@@ -2,8 +2,8 @@
 include 'config.php';
 session_start();
 
-if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != true) {
-    echo '<script>alert("Session not set"); window.location.href = "signin.php";</script>';
+if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] != true || !isset($_SESSION['college_id'])) {
+    echo '<script>alert("Please sign in first!"); window.location.href = "signin.php";</script>';
     exit;
 }
 
