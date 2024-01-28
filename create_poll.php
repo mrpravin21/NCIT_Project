@@ -106,13 +106,20 @@ if (isset($_POST['submit_poll'])) {
     $description = $_POST['poll_description'];
     $endTime = $_POST['poll_end_time'];
     $creator = $_POST['poll_creator'];
-    $createPollQuery = "INSERT INTO poll (poll_title, poll_description, poll_creator, poll_create_time, poll_end_time, poll_yes_votes, poll_no_votes) VALUES ('$title', '$description', '$creator', NOW(), '$endTime', 0, 0)";
-    $createPollResult = mysqli_query($conn, $createPollQuery);
 
-    if ($createPollResult) {
-      echo '<script>alert("Poll created successfully!"); window.location.href = "home.php";</script>';
+    $currentDateTime = date("Y-m-d H:i:s");
+    if ($endTime <= $currentDateTime) {
+        echo '<script>alert("Please select a date and time after the current date and time.");</script>';
     } else {
-        echo '<script>alert("Error creating poll.");</script>';
+        $createPollQuery = "INSERT INTO poll (poll_title, poll_description, poll_creator, poll_create_time, poll_end_time, poll_yes_votes, poll_no_votes) VALUES ('$title', '$description', '$creator', NOW(), '$endTime', 0, 0)";
+        $createPollResult = mysqli_query($conn, $createPollQuery);
+    
+
+        if ($createPollResult) {
+            echo '<script>alert("Poll created successfully!"); window.location.href = "home.php";</script>';
+        } else {
+            echo '<script>alert("Error creating poll.");</script>';
+        }
     }
 }
 ?>

@@ -148,41 +148,47 @@ if (isset($_POST['submit'])) {
     $folder = $_SERVER['DOCUMENT_ROOT'] . "/NCIT_Project/images/" . $filename;
     echo "Full Path: " . $folder;
 
-    if (move_uploaded_file($tempname, $folder)) {
-        echo "File uploaded successfully.";
-
-        $a = $_POST['eid'];
-        $b = $_POST['event_title'];
-        $c = $_POST['location'];
-        $d = $_POST['organizer'];
-        $e = $_POST['message'];
-        $f = $_POST['date'];
-
-        // Use prepared statement to prevent SQL injection
-        $sql = "INSERT INTO events(eid, event_title, location, organizer, event_date, other_details, photo_path)
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "issssss", $a, $b, $c, $d, $f, $e, $filename);
-
-        if (mysqli_stmt_execute($stmt)) {
-            echo "Data entered successfully";
-            
-            // Redirect only if the statement execution is successful
-           
-        } else {
-            echo "Unsuccessful entry";
-        }
-
-        mysqli_stmt_close($stmt);
+    $selectedDate = $_POST['date'];
+    $currentDate = date("Y-m-d");
+    if ($selectedDate < $currentDate) {
+        echo '<script>alert("Please select a date after the current date.");</script>';
     } else {
-        echo "Error moving the uploaded file to $folder. Check folder permissions and file paths.";
-    }
-    #header("Location: home.php"); 
-    #exit();
-   # <script><script>
-   echo '<script>alert("Insertion Successful"); window.location.href = "home.php#event-resource-sec";</script>';
-   
+
+        if (move_uploaded_file($tempname, $folder)) {
+            echo "File uploaded successfully.";
+
+            $a = $_POST['eid'];
+            $b = $_POST['event_title'];
+            $c = $_POST['location'];
+            $d = $_POST['organizer'];
+            $e = $_POST['message'];
+            $f = $_POST['date'];
+
+            // Use prepared statement to prevent SQL injection
+            $sql = "INSERT INTO events(eid, event_title, location, organizer, event_date, other_details, photo_path)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "issssss", $a, $b, $c, $d, $f, $e, $filename);
+
+            if (mysqli_stmt_execute($stmt)) {
+                echo "Data entered successfully";
+                
+                // Redirect only if the statement execution is successful
+              
+            } else {
+                echo "Unsuccessful entry";
+            }
+
+            mysqli_stmt_close($stmt);
+        } else {
+            echo "Error moving the uploaded file to $folder. Check folder permissions and file paths.";
+        }
+        #header("Location: home.php"); 
+        #exit();
+      # <script><script>
+      echo '<script>alert("Insertion Successful"); window.location.href = "home.php#event-resource-sec";</script>';
+    }  
 
 }
 ?>

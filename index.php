@@ -127,7 +127,7 @@ include 'config.php';
             <img src="./assets/images/sushant1.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
             <h2 class="top-head fw-normal">Sushant</h2>
             <p>Co-Creator of NCITArena</p>
-            <p><a class="btn btn-secondary" href="https://www.facebook.com/sushant.sharma59" target="_blank">View details »</a></p>
+            <p><a class="btn btn-secondary" href="https://github.com/sushant2059" target="_blank">View details »</a></p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
       

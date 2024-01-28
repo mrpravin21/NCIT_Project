@@ -85,16 +85,16 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
             <div class="container">
               <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                 <div class="col-md-4 d-flex align-items-center">
-                  <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                  <a href="#" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                     <img src="./assets/images/light_logo.png" alt="logo" height="40" id="footerlogo">
                   </a>
                   <span class="mb-3 mb-md-0 text-body-secondary">© 2024 polls@NCIT</span>
                 </div>
             
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                  <li class="ms-3"><a class="text-body-secondary" href="#"><img src="./assets/images/icons8-twitter-50.png" alt="twitter" id="twitter"/><use xlink:href="#twitter"></use></svg></a></li>
-                  <li class="ms-3"><a class="text-body-secondary" href="#"><img src="./assets/images/icons8-instagram-50.png" alt="instagram" id="insta"/></use></svg></a></li>
-                  <li class="ms-3"><a class="text-body-secondary" href="#"><img src="./assets/images/icons8-facebook-50.png" alt="facebook" id="facebook"/></use></svg></a></li>
+                  <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-twitter-50.png" alt="twitter" id="twitter"/><use xlink:href="#twitter"></use></svg></a></li>
+                  <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-instagram-50.png" alt="instagram" id="insta"/></use></svg></a></li>
+                  <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-facebook-50.png" alt="facebook" id="facebook"/></use></svg></a></li>
                 </ul>
               </footer>
             </div>
