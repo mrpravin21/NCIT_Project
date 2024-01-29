@@ -23,11 +23,14 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 75vh;
-            width: 55%;
+            height: 80vh;
+            width: 50%;
         }
         .foot-div {
             margin-top: 22rem;
+        }
+        .mar-in-signin {
+          margin-left: 6.5rem;
         }
     </style>  
 </head>
@@ -109,6 +112,7 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
       </div>
 
       <button type="submit" class="btn btn-primary w-100 py-2 btn-size" name="submit">Submit</button>
+      <p class="mt-4 mb-3 mar-in-signin">Want to try out something else? <a href="home.php" style="text-decoration:none;">Go Back</a></p>
       </div>
     </form>
     </div>

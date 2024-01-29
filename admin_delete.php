@@ -100,7 +100,12 @@ $usersqueryresult = mysqli_query($conn, $usersquery);
         zoom: 120%;
     }
     .del-but-siz {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
+      margin-left: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .del-bb {
+      margin-top: 1rem;
     }
   </style>
 </head>
@@ -141,7 +146,7 @@ $usersqueryresult = mysqli_query($conn, $usersquery);
               <?php echo $poll['poll_title']; ?>
               <form method="post" action="" onsubmit="return confirmDelete();">
                 <input type="hidden" name="poll_id" value="<?php echo $poll['poll_id']; ?>">
-                <button type="submit" name="delete_poll" class="btn btn-danger rounded-pill">Delete</button>
+                <button type="submit" name="delete_poll" class="btn btn-danger rounded-pill del-bb">Delete</button>
               </form>
             </li>
           <?php endwhile; ?>
@@ -156,7 +161,7 @@ $usersqueryresult = mysqli_query($conn, $usersquery);
               <?php echo $event['event_title']; ?>
               <form method="post" action=""onsubmit="return confirmDelete();">
                 <input type="hidden" name="eid" value="<?php echo $event['eid']; ?>">
-                <button type="submit" name="delete_event" class="btn btn-danger rounded-pill">Delete</button>
+                <button type="submit" name="delete_event" class="btn btn-danger rounded-pill del-bb">Delete</button>
               </form>
             </li>
           <?php endwhile; ?>
@@ -171,7 +176,7 @@ $usersqueryresult = mysqli_query($conn, $usersquery);
               <?php echo $resource['resource_title']; ?>
               <form method="post" action="" onsubmit="return confirmDelete();">
                 <input type="hidden" name="rid" value="<?php echo $resource['rid']; ?>">
-                <button type="submit" name="delete_resource" class="btn btn-danger rounded-pill">Delete</button>
+                <button type="submit" name="delete_resource" class="btn btn-danger rounded-pill del-bb">Delete</button>
               </form>
             </li>
           <?php endwhile; ?>
@@ -186,7 +191,7 @@ $usersqueryresult = mysqli_query($conn, $usersquery);
               <?php echo $user['full_name']; ?>
               <form method="post" action="" onsubmit="return confirmDelete();">
                 <input type="hidden" name="college_id" value="<?php echo $user['college_id']; ?>">
-                <button type="submit" name="delete_user" class="btn btn-danger rounded-pill">Delete</button>
+                <button type="submit" name="delete_user" class="btn btn-danger rounded-pill del-bb">Delete</button>
               </form>
             </li>
           <?php endwhile; ?>

@@ -23,7 +23,10 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 75vh;
+            height: 80vh;
+        }
+        .mar-in-signin {
+          margin-left: 2.5rem;
         }
     </style>
 </head>
@@ -86,6 +89,7 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
 
                       
                         <button class="btn btn-primary w-100 py-2 btn-size" type="submit" name="submit">Upload</button>
+                        <p class="mt-4 mb-3 mar-in-signin">Want to try out something else? <a href="home.php" style="text-decoration:none;">Go Back</a></p>
                       
                         
                     </form>
