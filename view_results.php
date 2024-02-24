@@ -64,25 +64,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['poll_id'])) {
                     </li>
                 </ul>
                 <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                    <a href="update.php"><button class="btn btn-outline-success rounded-pill me-md-2">Update</button></a>
                     <a href="signout.php"><button class="btn btn-outline-danger rounded-pill">Sign Out</button></a>
                 </div>
                 </div>
             </div>
             </nav>
             <div class="poll-results">
-                <div><h1 class="display-5 text-body-emphasis lh-1 mb-3"><span class="main-text">Poll Results of </span><span class="fw-bold main-text">'<?php echo $poll['poll_title']; ?>'</span></h1><div>
-                <div><p style="margin-top: 3rem; color: green;" class="lead fw-bold">Yes Votes: <span class="main-text fw-bold"><?php echo $poll['poll_yes_votes']; ?></span></p><div>
-                <div><p style="margin-top: 3rem; color:red;" class="fw-bold">No Votes: <span class="main-text fw-bold"><?php echo $poll['poll_no_votes']; ?></span></p><div>
+                <div><h1 class="display-5 text-body-emphasis lh-1 mb-3"><span class="main-text1" style="color: rgb(0, 0, 150)">Poll Results of </span><span class="fw-bold main-text1" style="color: rgb(0, 0, 150)">'<?php echo $poll['poll_title']; ?>'</span></h1><div>
+                <div><p style="margin-top: 3rem; color: green;" class="lead fw-bold">Yes Votes: <span class="main-text1 fw-bold" style="color: rgb(0, 0, 150)"><?php echo $poll['poll_yes_votes']; ?></span></p><div>
+                <div><p style="margin-top: 3rem; color:red;" class="fw-bold">No Votes: <span class="main-text1 fw-bold" style="color: rgb(0, 0, 150)"><?php echo $poll['poll_no_votes']; ?></span></p><div>
             </div>
             <div class="container foot-div mt-5">
                 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                    <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text">© 2024 NCITArena</span></p>
+                    <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">© 2024 NCITArena</span></p>
                 
                     
                     <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
                 
                     <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><span class="main-text">Contact us</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
                     
                     </ul>
                 </footer>

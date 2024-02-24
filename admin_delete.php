@@ -57,10 +57,12 @@ if(isset($_POST['delete_resource']) && isset($_POST['rid'])){
 
 if(isset($_POST['delete_user']) && isset($_POST['college_id'])){
   $collegeIdToDelete = $_POST['college_id'];
+  $deletevoteofusercount = "DELETE FROM votes WHERE college_id = $collegeIdToDelete";
   $deleteuserQuery = "DELETE FROM users WHERE college_id = $collegeIdToDelete";
+  $deleteuservotequery = mysqli_query($conn, $deletevoteofusercount);
   $deleteuserResult = mysqli_query($conn, $deleteuserQuery);
 
-  if($deleteuserResult) {
+  if($deleteuserResult && $deleteuservotequery) {
       echo '<script>alert("User deleted successfully!");</script>';
       // You might want to redirect or reload the page after deletion
       // header("Location: admin_panel.php");

@@ -32,6 +32,9 @@ border-radius: 0.75rem;
 #main-sec {
   margin-top: 5rem;
 }
+.main-text1 {
+  color: rgb(0, 0, 150);
+}
 #main-text {
   color: rgb(0, 0, 150);
 }

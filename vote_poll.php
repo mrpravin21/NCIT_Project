@@ -105,13 +105,14 @@ if (isset($_REQUEST['poll_id'])) {
                     </li>
                 </ul>
                 <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                    <a href="update.php"><button class="btn btn-outline-success rounded-pill me-md-2">Update</button></a>
                     <a href="signout.php"><button class="btn btn-outline-danger rounded-pill">Sign Out</button></a>
                 </div>
                 </div>
             </div>
             </nav>
             <div class="vote-form">
-                <div><h1 class="text-center text-body-emphasis mb-3"><span class="main-text">Vote on </span><span class="main-text fw-bold">'<?php echo $poll['poll_title']; ?>'</span></h1><div>
+                <div><h1 class="text-center text-body-emphasis mb-3"><span class="main-text1" style="color: rgb(0, 0, 150)">Vote on </span><span class="main-text1 fw-bold" style="color: rgb(0, 0, 150)">'<?php echo $poll['poll_title']; ?>'</span></h1><div>
                 <form action="vote_poll.php" method="post" onsubmit="return submitVote();">
                     <div class="form-floating">
                         <input type="hidden" name="poll_id" value="<?php echo $pollId; ?>">
@@ -131,13 +132,13 @@ if (isset($_REQUEST['poll_id'])) {
             
             <div class="container foot-div mt-5">
                 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                    <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text">© 2024 NCITArena</span></p>
+                    <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">© 2024 NCITArena</span></p>
                 
                     
                     <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
                 
                     <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><span class="main-text">Contact us</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
                     
                     </ul>
                 </footer>

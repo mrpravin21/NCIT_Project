@@ -74,7 +74,7 @@ while ($row = mysqli_fetch_assoc($getPollsResult)) {
                                         if (distance < 0) {
                                             clearInterval(x);
                                             if (timerElement) {
-                                                timerElement.innerHTML = "<span id='main-text'>Poll Ended</span>";
+                                                timerElement.innerHTML = "<span id='main-text1' style='color: rgb(0, 0, 150)'>Poll Ended</span>";
                                             }
 
                                             if (voteButton) {

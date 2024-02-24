@@ -4,29 +4,39 @@ ini_set('display_errors', 1);
 ob_start();
 include 'config.php';
 session_start();
+
 if(isset($_POST['submit'])){
   $college_id=$_POST['college_id'];
   $user_pass=$_POST['user_pass'];
+
   if(!empty($college_id) && !empty($user_pass)){
-    $match_query = "SELECT * FROM users WHERE college_id = '$college_id' AND user_pass = '$user_pass'";
+    $match_query = "SELECT * FROM users WHERE college_id = '$college_id'";
     $match_query_res = mysqli_query($conn, $match_query);
-    $match_count = mysqli_num_rows($match_query_res);
-    if($match_count>0){
-      $_SESSION['college_id']=$college_id;
-      $_SESSION['loggedIn']=true;
-      echo '<script>window.location.href = "./home.php";</script>';
-      #header("location:./home.html");
-      exit;
+    
+    if ($match_query_res) {
+        $user = mysqli_fetch_assoc($match_query_res);
+        
+        if ($user && password_verify($user_pass, $user['user_pass'])) {
+            $_SESSION['college_id'] = $college_id;
+            $_SESSION['loggedIn'] = true;
+            echo '<script>window.location.href = "./home.php";</script>';
+            exit;
+        } else {
+            ?>
+            <script>
+                alert("Invalid Credentials");
+            </script>
+            <?php
+        }
+    } else {
+        // Handle query error
+        ?>
+        <script>
+            alert("Query Error");
+        </script>
+        <?php
     }
-    else{
-      ?>
-      <script>
-        alert("Invalid Credentials");
-      </script>
-      <?php
-    }
-  }
-  else{
+  } else {
     ?>
     <script>
       alert("Enter your credentials");
@@ -79,7 +89,6 @@ ob_end_flush();
                 </ul>
               </li>
             </ul>
-            <img src="./assets/images/icons8-moon-100.png" alt="moon" height="40" id="lightdark"/>
           </div>
         </div>
       </nav>
@@ -94,17 +103,15 @@ ob_end_flush();
             <input type="text" class="form-control" id="college_id" name="college_id" placeholder="College Roll Number" value="<?php if(isset($_COOKIE['college_id'])){ echo $_COOKIE['college_id']; } ?>" required>
             <label for="college_id">College Roll Number</label>
           </div>
-          <div class="form-floating">
+          <div class="form-floating mb-5">
             <input type="password" class="form-control" id="user_pass" name="user_pass" placeholder="Password" value="<?php if(isset($_COOKIE['user_pass'])){ echo $_COOKIE['user_pass']; }?>" required>
             <label for="user_pass">Password</label>
+            <div class="form-check text-start">
+                <input class="form-check-input" type="checkbox" id="showPassword">
+                <label class="form-check-label" for="showPassword">Show Password</label>
+            </div>
           </div>
       
-          <div class="form-check text-start my-3">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Remember me
-            </label>
-          </div>
           <input type="submit" name="submit" value="Sign In" class="btn btn-primary w-100 py-2 btn-size">
           <p class="mt-4 mar-in-signin">Don't have an account? <a href="signup.php" style="text-decoration:none;">Sign Up</a></p>
         </form>
@@ -113,18 +120,24 @@ ob_end_flush();
       
       <div class="container foot-div">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text">© 2024 NCITArena</span></p>
+          <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">© 2024 NCITArena</span></p>
       
           
           <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
       
           <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="index.php#footer-sec" class="nav-link px-2 text-body-secondary"><span class="main-text">Contact us</span></a></li>
+            <li class="nav-item"><a href="index.php#footer-sec" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
             
           </ul>
         </footer>
     </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       <script src="./logic.js"></script>
+      <script>
+        document.getElementById('showPassword').addEventListener('change', function () {
+            var passwordInput = document.getElementById('user_pass');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
 </body>
 </html>

@@ -79,7 +79,6 @@ ob_end_flush();
                 </ul>
               </li>
             </ul>
-            <img src="./assets/images/icons8-moon-100.png" alt="moon" height="40" id="lightdark"/>
           </div>
         </div>
       </nav>
@@ -94,17 +93,15 @@ ob_end_flush();
             <input type="text" class="form-control" id="admin_username" name="admin_username" placeholder="Admin Username" required>
             <label for="admin_username">Admin Username</label>
           </div>
-          <div class="form-floating">
+          <div class="form-floating mb-5">
             <input type="password" class="form-control" id="admin_user_pass" name="admin_user_pass" placeholder="Admin Password" required>
             <label for="admin_user_pass">Admin Password</label>
+            <div class="form-check text-start">
+                <input class="form-check-input" type="checkbox" id="showPassword">
+                <label class="form-check-label" for="showPassword">Show Password</label>
+            </div>
           </div>
       
-          <div class="form-check text-start my-3">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Remember me
-            </label>
-          </div>
           <input type="submit" name="submit" value="Sign In" class="btn btn-primary w-100 py-2 btn-size">
           <p class="mt-4 mar-in-signin">Sign in as a student instead? <a href="signin.php" style="text-decoration:none;">Sign In</a></p>
         </form>
@@ -113,18 +110,24 @@ ob_end_flush();
       
       <div class="container foot-div">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text">© 2024 NCITArena</span></p>
+          <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">© 2024 NCITArena</span></p>
       
           
           <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
       
           <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="index.php#footer-sec" class="nav-link px-2 text-body-secondary"><span class="main-text">Contact us</span></a></li>
+            <li class="nav-item"><a href="index.php#footer-sec" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
             
           </ul>
         </footer>
     </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       <script src="./logic.js"></script>
+      <script>
+        document.getElementById('showPassword').addEventListener('change', function () {
+            var passwordInput = document.getElementById('admin_user_pass');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
 </body>
 </html>

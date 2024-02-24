@@ -41,9 +41,11 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
                   <a class="nav-link" href="#event-resource-sec">Resources</a>
                 </li>
               </ul>
-              <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+              <div class="d-lg-flex col-lg-3 justify-content-lg-end nav-btn-sec">
+                <a href="update.php"><button class="btn btn-outline-success rounded-pill me-md-2">Update</button></a>
                 <a href="signout.php"><button class="btn btn-outline-danger rounded-pill">Sign Out</button></a>
               </div>
+        
             </div>
           </div>
         </nav>
@@ -88,7 +90,7 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
                   <a href="#" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                     <img src="./assets/images/light_logo.png" alt="logo" height="40" id="footerlogo">
                   </a>
-                  <span class="mb-3 mb-md-0 text-body-secondary">© 2024 polls@NCIT</span>
+                  <span class="mb-3 mb-md-0 text-body-secondary">© 2024 NCITArena</span>
                 </div>
             
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

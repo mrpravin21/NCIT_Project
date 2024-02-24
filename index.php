@@ -54,9 +54,9 @@ include 'config.php';
         <div class="col-10 col-sm-8 col-lg-6">
           <img src="https://gatton.uky.edu/sites/default/files/iStock-networkWEB.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
         </div>
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><span id="main-text">NCITArena</span> is a<br>NCIT dedicated portal to share views and resources</h1>
-          <p class="lead">Welcome to NCITArena, the dynamic platform where your opinion truly matters! At NCITArena, we believe in fostering a vibrant community where every student's voice contributes to shaping the collective narrative.NCITArena is more than just a poll website, it's a virtual space designed exclusively for the students of NCIT to share their thoughts, perspectives, and insights</p>
+        <div class="col-lg-6 main-di-text">
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><span id="main-text">NCITArena</span> is a<br>NCIT dedicated portal to share views and resources</h1><br>
+          <p class="lead">Welcome to NCITArena, the dynamic platform where your opinion truly matters! At NCITArena, we believe in fostering a vibrant community where every student's voice contributes to shaping the collective narrative.NCITArena is more than just a poll website, it's a virtual space designed exclusively for the students of NCIT to share their thoughts, perspectives, and insights</p><br>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <a href="./signin.php"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Sign In</button></a>
             <a href="./signup.php"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign Up</button></a>
@@ -110,6 +110,7 @@ include 'config.php';
       <div class="container marketing">
 
         <!-- Three columns of text below the carousel -->
+        <hr class="featurette-divider mt-5">
         <div class="row item-head mt-5">
           <div class="col-lg-4">
             <img src="./assets/images/rohan2.jpg" alt="me" id="profile-me" class="bd-placeholder-img rounded-circle" width="140" height="140">
@@ -201,7 +202,38 @@ include 'config.php';
         </footer>
       </div>
       </section>
-
+    <script>
+        let icon = document.getElementById("lightdark");
+        let logo = document.getElementById("logoimg");
+        let footlogo = document.getElementById("footerlogo");
+        let twitter = document.getElementById("twitter");
+        let insta = document.getElementById("insta");
+        let facebook = document.getElementById("facebook");
+        let text = document.getElementById("main-text");
+        icon.onclick = function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute("data-bs-theme");
+            if (currentTheme === "light") {
+                document.documentElement.setAttribute("data-bs-theme", "dark");
+                icon.src = "./assets/images/icons8-sun-50.png";
+                logo.src = "./assets/images/dark_logo.png";
+                footlogo.src = "./assets/images/dark_logo.png";
+                twitter.src = "./assets/images/dark_twitter.png";
+                insta.src = "./assets/images/insta_dark.png";
+                facebook.src = "./assets/images/facebook_dark.png";
+                text.style.color = "rgb(23, 69, 252)";
+            } 
+            else {
+                document.documentElement.setAttribute("data-bs-theme", "light");
+                icon.src = "./assets/images/icons8-moon-100.png";
+                logo.src = "./assets/images/light_logo.png";
+                footlogo.src = "./assets/images/light_logo.png";
+                twitter.src = "./assets/images/icons8-twitter-50.png";
+                insta.src = "./assets/images/icons8-instagram-50.png";
+                facebook.src = "./assets/images/icons8-facebook-50.png";
+                text.style.color = "rgb(0, 0, 150)";
+             }
+         }  
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="./logic.js"></script>
     

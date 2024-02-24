@@ -111,7 +111,7 @@ $resourcesResult = mysqli_query($conn, $resourcesQuery);
 
         <div class="container admin-func">
             <div>
-                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><span class="main-text">Welcome to the Admin Panel!</span></h1>
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><span class="main-text1" style="color: rgb(0, 0, 150)">Welcome to the Admin Panel!</span></h1>
             </div>
             <div class="mt-5">
                 <p class="lead" style="font-size: 2rem;">Here are your functionalities</p>
@@ -124,13 +124,13 @@ $resourcesResult = mysqli_query($conn, $resourcesQuery);
 
         <div class="container foot-div">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text">© 2024 NCITArena</span></p>
+          <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">© 2024 NCITArena</span></p>
       
           
           <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
       
           <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><span class="main-text">Contact us</span></a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
             
           </ul>
         </footer>
