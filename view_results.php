@@ -28,14 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['poll_id'])) {
             <link rel="stylesheet" href="./style.css">
             <!-- Your custom styles -->
             <style>
-                body {
-                    overflow: hidden;
-                }
+               
                 .poll-results {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    height: 100vh;
+                    height: 120vh;
                     zoom: 130%;
                 }
             </style>
@@ -83,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['poll_id'])) {
                     <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
                 
                     <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
+                    <li class="nav-item"><a href="https://ncit.edu.np" target="_blank" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
                     
                     </ul>
                 </footer>

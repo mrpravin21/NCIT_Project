@@ -47,6 +47,11 @@ ob_end_flush();
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/dark_fav.png">
   <link rel="stylesheet" href="./style.css">
+  <style>
+    .sign-in-page {
+      height: 62vh;
+    }
+  </style>
 </head>
 
 <body>

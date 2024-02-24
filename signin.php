@@ -57,6 +57,11 @@ ob_end_flush();
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/dark_fav.png">
   <link rel="stylesheet" href="./style.css">
+  <style>
+    .sign-in-page {
+      height: 60vh;
+    }
+  </style>
 </head>
 
 <body>
@@ -96,7 +101,7 @@ ob_end_flush();
       <div class="container sign-in-page">
       <main class="form-signin w-100 m-auto">
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-          <img class="mb-4 mar-in-signin" src="./assets/images/register-logo.png" alt="" width="57" height="57" id="signinlogo"><br><br>
+          <img class="mb-4 mar-in-signin" src="./assets/images/group.png" alt="" width="55" height="55" id="signinlogo"><br><br>
           <!--<h1 class="h3 mb-4 fw-normal">Please sign in</h1>-->
       
           <div class="form-floating">

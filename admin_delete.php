@@ -98,7 +98,7 @@ $usersqueryresult = mysqli_query($conn, $usersquery);
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 65vh;
+        height: 82vh;
         zoom: 120%;
     }
     .del-but-siz {

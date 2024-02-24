@@ -82,25 +82,20 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
         
       </div>
     
-    
-        <section id="footer-sec">
-            <div class="container">
-              <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <div class="col-md-4 d-flex align-items-center">
-                  <a href="#" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-                    <img src="./assets/images/light_logo.png" alt="logo" height="40" id="footerlogo">
-                  </a>
-                  <span class="mb-3 mb-md-0 text-body-secondary">© 2024 NCITArena</span>
-                </div>
-            
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                  <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-twitter-50.png" alt="twitter" id="twitter"/><use xlink:href="#twitter"></use></svg></a></li>
-                  <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-instagram-50.png" alt="instagram" id="insta"/></use></svg></a></li>
-                  <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ourncit" target="_blank"><img src="./assets/images/icons8-facebook-50.png" alt="facebook" id="facebook"/></use></svg></a></li>
-                </ul>
-              </footer>
+      <div class="container foot-div mt-5">
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">© 2024 NCITArena</span></p>
+                
+                    
+                    <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
+                
+                    <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="https://ncit.edu.np" target="_blank" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
+                    
+                    </ul>
+                </footer>
             </div>
-            </section>
+       
           </div>
       
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

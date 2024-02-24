@@ -69,6 +69,12 @@ if ($user_result) {
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link type="image/png" sizes="32x32" rel="icon" href="./assets/images/dark_fav.png">
   <link rel="stylesheet" href="./style.css">
+  <style>
+    .show-pass {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -107,7 +113,7 @@ if ($user_result) {
         <main class="form-signin w-100 m-auto form-page">
             <div class="row">
                 <div class="col-md-6 image-style">
-                    <img src="./assets/images/update-logo.png" class="mb-4" alt="" height="150" width="150" id="img-logo">
+                    <img src="./assets/images/group.png" class="mb-4" alt="" height="100" width="100" id="img-logo">
                     <h1 class="h3 mb-3 fw-normal mt-3" id="head-logo"><span class="main-text1" style="color: rgb(0, 0, 150)">Update Information</span></h1>
                 </div>
                 <div class="col-md-6 form-contain">
@@ -119,9 +125,8 @@ if ($user_result) {
 
                          
                         <div>
-                          <label for="department">Change Department:</label>
                           <select id="department" name="department" class="form-control form-select department-style">
-                          <option selected>Select Department</option>
+                          <option selected>Change Department</option>
                             <option value="IT" <?php if ($user_data['department'] == 'IT') echo 'selected'; ?>>IT</option>
                             <option value="Software" <?php if ($user_data['department'] == 'Software') echo 'selected'; ?>>Software</option>
                             <option value="Civil" <?php if ($user_data['department'] == 'Civil') echo 'selected'; ?>>Civil</option>
@@ -137,18 +142,18 @@ if ($user_result) {
                         </div>
 
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="current_pass" name="current_pass" placeholder="Current Password" required>
+                            <input type="password" class="form-control show-pass" id="current_pass" name="current_pass" placeholder="Current Password" required>
                             <label for="current_pass">Current Password</label>
-                            <div class="form-check text-start mb-4">
+                            <div class="form-check text-start mb-3">
                                 <input class="form-check-input" type="checkbox" id="showcurrentPassword">
                                 <label class="form-check-label" for="showcurrentPassword">Show Password</label>
                             </div>
                         </div>
 
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="user_pass" name="user_pass" placeholder="Password" required>
+                            <input type="password" class="form-control show-pass" id="user_pass" name="user_pass" placeholder="Password" required>
                             <label for="user_pass">New Password</label>
-                            <div class="form-check text-start mb-4">
+                            <div class="form-check text-start mb-3">
                                 <input class="form-check-input" type="checkbox" id="showPassword">
                                 <label class="form-check-label" for="showPassword">Show Password</label>
                             </div>
@@ -160,6 +165,20 @@ if ($user_result) {
             </div>
         </main>
     </div>
+
+    <div class="container foot-div mt-5">
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">© 2024 NCITArena</span></p>
+                
+                    
+                    <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
+                
+                    <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="https://ncit.edu.np" target="_blank" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
+                    
+                    </ul>
+                </footer>
+            </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>

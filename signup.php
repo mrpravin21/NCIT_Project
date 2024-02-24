@@ -54,7 +54,7 @@ ini_set('display_errors', 1);
         <main class="form-signin w-100 m-auto form-page">
             <div class="row">
                 <div class="col-md-6 image-style">
-                    <img src="./assets/images/register-logo.png" class="mb-4" alt="" height="200" width="200" id="img-logo">
+                    <img src="./assets/images/group.png" class="mb-4" alt="" height="100" width="100" id="img-logo">
                     <h1 class="h3 mb-3 fw-normal mt-3" id="head-logo"><span class="main-text1" style="color: rgb(0, 0, 150)">User Registration</span></h1>
                 </div>
                 <div class="col-md-6 form-contain">
@@ -71,8 +71,8 @@ ini_set('display_errors', 1);
                         </div>
                          
                         <div>
-                          <label for="department">Department:</label>
                           <select id="department" name="department" class="form-control form-select department-style">
+                            <option selected>Select Department</option>
                             <option value="IT">IT</option>
                             <option value="Software">Software</option>
                             <option value="Civil">Civil</option>
@@ -102,6 +102,21 @@ ini_set('display_errors', 1);
             </div>
         </main>
     </div>
+
+    <div class="container foot-div">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">© 2024 NCITArena</span></p>
+      
+          
+          <a href="https://ncit.edu.np" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/NCIT_LOGO.jpg" height="45" width="45" class="bi me-2"></a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="index.php#footer-sec" class="nav-link px-2 text-body-secondary"><span class="main-text1" style="color: rgb(0, 0, 150)">Contact us</span></a></li>
+            
+          </ul>
+        </footer>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="./logic.js"></script>
     <script>
