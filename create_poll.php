@@ -5,6 +5,12 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
   echo '<script>alert("Please sign in first!"); window.location.href = "signin.php";</script>';
   #header('location: signin.php');
 }
+$college_id = $_SESSION['college_id'];
+$user_query = "SELECT * FROM users WHERE college_id = '$college_id'";
+$user_result = mysqli_query($conn, $user_query);
+if ($user_result) {
+  $user_data = mysqli_fetch_assoc($user_result);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="">
@@ -64,7 +70,7 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
             <label for="poll_description">Poll description</label>
           </div>
           <div class="form-floating">
-            <input type="text" class="form-control" id="poll_creator" name="poll_creator" placeholder="Poll creator" required>
+            <input type="text" class="form-control" id="poll_creator" name="poll_creator" placeholder="Poll creator" value="<?php echo $user_data['full_name']; ?>" required>
             <label for="poll_creator">Poll creator</label>
           </div>
           <div class="form-floating">

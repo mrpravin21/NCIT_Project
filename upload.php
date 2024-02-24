@@ -5,6 +5,7 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
   echo '<script>alert("Please sign in first!"); window.location.href = "signin.php";</script>';
   #header('location: signin.php');
 }
+$college_id = $_SESSION['college_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en" theme="dark">
@@ -71,8 +72,8 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true || !isset($_SESS
                         </div>
                         
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="rollNumber" name="rollNumber" placeholder="Your Roll Number" required>
-                            <label for="rollNumber">Roll Number</label>
+                            <input type="text" class="form-control" id="rollNumber" name="rollNumber" placeholder="Your Roll Number" value="<?php echo $college_id ?>" required>
+                            <label for="rollNumber">College Roll Number</label>
                         </div>
                         <div class="form-floating">
                             <select class="form-select" aria-label="Default select example" name="academicYear">
