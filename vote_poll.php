@@ -119,6 +119,7 @@ if (isset($_REQUEST['poll_id'])) {
                         <div class="mb-3">
                             <label for="vote_option" class="form-label">Your Vote:</label>
                             <select id="vote_option" name="vote_option" class="form-select form-control" required>
+                                <option selected>Select Your Vote</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
